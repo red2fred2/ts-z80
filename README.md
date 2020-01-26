@@ -1,5 +1,7 @@
 # TS-Z80
 
+![Block Diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Z80_arch.svg/370px-Z80_arch.svg.png)
+
 #### Required software
 * NodeJS
 * NPM
