@@ -3,12 +3,20 @@ export class Multiplexer {
     //variables
     numInputs:number
 
-    //constructor
+    /**
+     * Constructor
+     * @param numInputs specifies the number of inputs to this mux
+     */
     constructor(numInputs:number) {
         this.numInputs = numInputs
     }
 
-    //methods
+    /**
+     * Decides which input to use, and outputs it
+     * @param inputs options to choose from
+     * @param choice the chosen option
+     * @return the chosen input
+     */
     evaluate(inputs:number[], choice:number) {
         //error checking
         if(choice > this.numInputs || choice < 0) {
