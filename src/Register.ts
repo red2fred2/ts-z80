@@ -8,12 +8,14 @@ export class Register {
     //constructor
     constructor(numBits:number) {
         this.numBits = numBits
+        //create bitmask from bit size
         this.bitMask = Math.pow(2, this.numBits) - 1
         this.data = 0
     }
 
     //methods
     set(data:number) {
+        //truncate number to the correct number of bits
         let truncated:number = data & this.bitMask
 
         //check for overflow
