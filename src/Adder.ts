@@ -1,17 +1,28 @@
+/**
+ * An adder component
+ */
 export class Adder {
 
     //variables
     numBits:number
     bitMask:number
 
-    //constructor
+    /**
+     * Constructor
+     * @param numBits number of bits this adder uses
+     */
     constructor(numBits:number) {
         this.numBits = numBits
         //create bitmask from bit size
         this.bitMask = Math.pow(2, this.numBits) - 1
     }
 
-    //methods
+    /**
+     *
+     * @param a a number to add
+     * @param b another number to add
+     * @return a + b
+     */
     add(a:number, b:number) {
 
         //apply bitmasks
