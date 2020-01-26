@@ -15,6 +15,12 @@ export class Adder {
         a = a & this.bitMask
         b = b & this.bitMask
         let c:number = (a + b) & this.bitMask
+
+        //overflow check
+        if(c > this.bitMask) {
+            console.warn(`Overflow when adding ${a} + ${b}`)
+        }
+
         return c;
     }
 }
