@@ -1,3 +1,1 @@
-let x:number = 3
-
-console.log(x)
+import {Adder} from "./Adder";
