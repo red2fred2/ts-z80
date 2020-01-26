@@ -13,6 +13,7 @@ export class Adder {
     add(a:number, b:number) {
         a = a & this.bitMask
         b = b & this.bitMask
-        return a + b;
+        let c:number = (a + b) & this.bitMask
+        return c;
     }
 }
