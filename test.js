@@ -1,4 +1,4 @@
-const {equal} = require('assert')
+const {equal, deepEqual} = require('assert')
 
 // Adders
 const Adder = require('./build/Adder')
@@ -105,4 +105,84 @@ describe('Registers', function() {
             equal( reg.get(), 4464 )
         })
     })
+})
+
+// Memory
+const Memory = require('./build/Memory')
+describe('Memory', function() {
+    let ram = new Memory.Memory(1024);
+
+    describe('arrays', function() {
+        const testArray = [1, 0, 1, 0, 1, 0, 1, 1]
+
+        it('at 256', function() {
+            ram.setArray(256, testArray)
+            let actual = ram.getArray(256, testArray.length)
+            deepEqual( actual, testArray )
+        })
+        it('at 512', function() {
+            ram.setArray(512, testArray)
+            let actual = ram.getArray(512, testArray.length)
+            deepEqual( actual, testArray )
+        })
+        it('at 700', function() {
+            ram.setArray(700, testArray)
+            let actual = ram.getArray(700, testArray.length)
+            deepEqual( actual, testArray )
+        })
+        it('random data overwrite', function() {
+            const randomArray = Array(100).fill().map(() => Math.round(Math.random()))
+
+            ram.setArray(512, randomArray)
+            let actual = ram.getArray(512, randomArray.length)
+            deepEqual( actual, randomArray )
+        })
+    })
+
+    describe('numbers', function() {
+        const testNumber = 170
+
+        it('at 256', function() {
+            ram.set(256, testNumber, 8)
+            let actual = ram.get(256, 8)
+            equal(actual, testNumber)
+        })
+        it('at 512', function() {
+            ram.set(512, testNumber, 8)
+            let actual = ram.get(512, 8)
+            equal(actual, testNumber)
+        })
+        it('at 700', function() {
+            ram.set(700, testNumber, 8)
+            let actual = ram.get(700, 8)
+            equal(actual, testNumber)
+        })
+        it('random number overwrite', function() {
+            const randomNumber = Math.round(Math.random() * 255)
+            ram.set(512, randomNumber, 8)
+            let actual = ram.get(512, 8)
+            equal(actual, randomNumber)
+        })
+    })
+
+    describe('edge cases', function() {
+        const testNumber = 170
+
+        it('at 0', function() {
+            ram.set(0, testNumber, 8)
+            let actual = ram.get(0, 8)
+            equal(actual, testNumber)
+        })
+        it('at the end', function() {
+            ram.set(1015, testNumber, 8)
+            let actual = ram.get(1015, 8)
+            equal(actual, testNumber)
+        })
+        it('big number', function() {
+            ram.set(256, testNumber, 32)
+            let actual = ram.get(256, 32)
+            equal(actual, testNumber)
+        })
+    })
+
 })
