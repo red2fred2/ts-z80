@@ -4,13 +4,13 @@
 export class InstructionDecoder {
 
     //variables
-    instructionMap:{name:string, code:number}[]
+    private instructionMap:{name:string, code:number}[]
 
     /**
      * Constructor
      * @param instructions array of possible instructions
      */
-    constructor(instructionMap:{name:string, code:number}[]) {
+    public constructor(instructionMap:{name:string, code:number}[]) {
         this.instructionMap = instructionMap
     }
 
@@ -19,7 +19,7 @@ export class InstructionDecoder {
      * @param name the name of the instruction
      * @return the code and args that correspond to this instruction name
      */
-    translate(name:string) {
+    public translate(name:string) {
         //check if regex matches
         const matches = this.instructionMap.filter(function(entry) {
             const regex = new RegExp(entry.name)

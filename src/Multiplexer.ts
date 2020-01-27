@@ -1,13 +1,13 @@
 export class Multiplexer {
 
     //variables
-    numInputs:number
+    private numInputs:number
 
     /**
      * Constructor
      * @param numInputs specifies the number of inputs to this mux
      */
-    constructor(numInputs:number) {
+    public constructor(numInputs:number) {
         this.numInputs = numInputs
     }
 
@@ -17,7 +17,7 @@ export class Multiplexer {
      * @param choice the chosen option
      * @return the chosen input
      */
-    evaluate(inputs:number[], choice:number) {
+    public evaluate(inputs:number[], choice:number) {
         //error checking
         if(choice > this.numInputs || choice < 0) {
             console.trace('Multiplexer choice is out of range')
@@ -30,5 +30,4 @@ export class Multiplexer {
 
         return inputs[choice]
     }
-
 }

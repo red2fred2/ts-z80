@@ -4,14 +4,14 @@
 export class Adder {
 
     //variables
-    numBits:number
-    bitMask:number
+    private numBits:number
+    private bitMask:number
 
     /**
      * Constructor
      * @param numBits number of bits this adder uses
      */
-    constructor(numBits:number) {
+    public constructor(numBits:number) {
         this.numBits = numBits
         //create bitmask from bit size
         this.bitMask = Math.pow(2, this.numBits) - 1
@@ -23,7 +23,7 @@ export class Adder {
      * @param b another number to add
      * @return a + b
      */
-    add(a:number, b:number) {
+    public add(a:number, b:number) {
 
         //apply bitmasks
         a = a & this.bitMask

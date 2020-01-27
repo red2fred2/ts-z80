@@ -6,13 +6,13 @@ import {Instruction} from './Instruction'
 export class ControlUnit {
 
     //variables
-    instructions:Instruction[]
+    private instructions:Instruction[]
 
     /**
      * Constructor
      * @param instructions array of possible instructions
      */
-    constructor(instructions:Instruction[]) {
+    public constructor(instructions:Instruction[]) {
         this.instructions = instructions
     }
 
@@ -21,7 +21,7 @@ export class ControlUnit {
      * @param key the name of the instruction
      * @return whatever the instruction returns
      */
-    run(key:number, param:number) {
+    public run(key:number, param:number) {
         //find matching instructions
         const matches = this.instructions.filter((ins:Instruction)=>ins.key == key)
 
@@ -34,6 +34,4 @@ export class ControlUnit {
             return matches[0].run(param)
         }
     }
-
-
 }
