@@ -28,9 +28,11 @@ export class InstructionDecoder {
 
         //check for issues with instructions
         if(matches.length < 1) {
-            console.warn(`Instruction '${name}' does not exist`)
+            console.error(`Instruction '${name}' does not exist`)
+            process.exit(1)
         } else if(matches.length > 1) {
-            console.warn(`Instruction '${name}' is defined more than once`)
+            console.error(`Instruction '${name}' is defined more than once`)
+            process.exit(1)
         } else {
 
             //return it
