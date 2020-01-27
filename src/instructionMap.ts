@@ -1,4 +1,4 @@
-exports = [
+export = [
     //row 0
     {name: 'nop', code: 0x00},
     {name: 'ld bc, ....', code: 0x01},
