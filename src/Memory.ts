@@ -22,13 +22,13 @@ export class Memory {
      */
     setArray(address:number, bitArray:number[]) {
         //error check
-        if(address + bitArray.length >= this.numBits || address < 0) {
+        if(address*8 + bitArray.length >= this.numBits || address < 0) {
             console.trace('Memory index out of range')
         }
 
         //set bits
         for(let i:number = 0; i < bitArray.length; i++) {
-            this.data[address+i] = bitArray[i]
+            this.data[address*8+i] = bitArray[i]
         }
     }
 
@@ -68,7 +68,7 @@ export class Memory {
         //get array
         let bitArray:number[] = []
         for(let i:number = 0; i < numBits; i++) {
-            bitArray[i] = this.data[address+i]
+            bitArray[i] = this.data[address*8+i]
         }
 
         return bitArray
