@@ -110,7 +110,7 @@ describe('Registers', function() {
 // Memory
 const Memory = require('./build/Memory')
 describe('Memory', function() {
-    let ram = new Memory.Memory(1024);
+    let ram = new Memory.Memory(1024*8);
 
     describe('arrays', function() {
         const testArray = [1, 0, 1, 0, 1, 0, 1, 1]
