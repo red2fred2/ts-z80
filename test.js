@@ -187,27 +187,16 @@ describe('Memory', function() {
 
 })
 
-// Instructions
-describe('Instructions', function() {
-    const Adder = require('./build/Adder')
-    const Instruction = require('./build/Instruction')
+// Instruction Decoder
+describe('Instruction Decoder', function() {
     const InstructionDecoder = require('./build/InstructionDecoder')
-
-    const adder = new Adder.Adder(16)
     const decoder = new InstructionDecoder.InstructionDecoder([
-        new Instruction.Instruction('add', (a, b) => adder.add(a, b)),
-        new Instruction.Instruction('sub', (a, b) => adder.add(a, -b))
+        {name: 'nop', code: 0x00},
+        {name: 'ld bc, ....', code: 0x01}
     ])
 
-    describe('add', function() {
-        it('1+2 = 3', () => equal( decoder.run('add', 1, 2), 3 ))
-        it('10+3 = 13', () => equal( decoder.run('add', 10, 3), 13 ))
-        it('200+55 = 255', () => equal( decoder.run('add', 200, 55), 255 ))
-    })
-    describe('sub', function() {
-        it('2-1 = 1', () => equal( decoder.run('sub', 2, 1), 1 ))
-        it('10-3 = 7', () => equal( decoder.run('sub', 10, 3), 7 ))
-        it('200-55 = 145', () => equal( decoder.run('sub', 200, 55), 145 ))
-    })
+    it('code: nop', () => equal( decoder.translate('nop').code, 0x00 ))
+    it('code: ld bc, **', () => equal( decoder.translate('ld bc, a3f0').code, 0x01 ))
+    it('arg: ld bc, **', () => equal( decoder.translate('ld bc, a3f0').arg, 0xa3f0 ))
 
 })

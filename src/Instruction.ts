@@ -4,7 +4,7 @@
 export class Instruction {
 
     //variables
-    key:string
+    key:number
     action:Function
 
     /**
@@ -12,7 +12,7 @@ export class Instruction {
      * @param key the name used to trigger the action
      * @param action the function to run
      */
-    constructor(key:string, action:Function) {
+    constructor(key:number, action:Function) {
         this.key = key
         this.action = action
     }
