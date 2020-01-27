@@ -20,7 +20,7 @@ export class Memory {
      * @param address memory address to set data at
      * @param bitArray array of bits to set at the address
      */
-    public setArray(address:number, bitArray:number[]) {
+    public setArray(address:number, bitArray:number[]) : void {
         //error check
         if(address*8 + bitArray.length >= this.numBits || address < 0) {
             console.trace('Memory index out of range')
@@ -38,7 +38,7 @@ export class Memory {
      * @param data data to be set
      * @param numBits number of bits to be set
      */
-    public set(address:number, data:number, numBits:number) {
+    public set(address:number, data:number, numBits:number) : void {
         //transform the number into an array of bits
         let bitArray:number[] = []
 
@@ -64,7 +64,7 @@ export class Memory {
      * @param numBits number of bits to get in the array
      * @return an array of the bits at the address
      */
-    public getArray(address:number, numBits:number) {
+    public getArray(address:number, numBits:number) : number[] {
         //get array
         let bitArray:number[] = []
         for(let i:number = 0; i < numBits; i++) {
@@ -80,7 +80,7 @@ export class Memory {
      * @param numBits number of bits in the number
      * @return a number represented by the bits in memory
      */
-    public get(address:number, numBits:number) {
+    public get(address:number, numBits:number) : number {
         const bitArray:number[] = this.getArray(address, numBits)
 
         //turn the bits back into a number

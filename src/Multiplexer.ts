@@ -17,7 +17,7 @@ export class Multiplexer {
      * @param choice the chosen option
      * @return the chosen input
      */
-    public evaluate(inputs:number[], choice:number) {
+    public evaluate(inputs:any[], choice:number) : any {
         //error checking
         if(choice > this.numInputs || choice < 0) {
             console.trace('Multiplexer choice is out of range')

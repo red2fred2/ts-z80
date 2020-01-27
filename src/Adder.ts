@@ -23,7 +23,7 @@ export class Adder {
      * @param b another number to add
      * @return a + b
      */
-    public add(a:number, b:number) {
+    public add(a:number, b:number) : number {
 
         //apply bitmasks
         a = a & this.bitMask

@@ -21,7 +21,7 @@ export class Instruction {
      * Runs the function for this instruction
      * @return whatever the function returns
      */
-    public run(...params:any[]) {
+    public run(...params:any[]) : any {
         return this.action(...params)
     }
 }

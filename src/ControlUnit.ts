@@ -21,7 +21,7 @@ export class ControlUnit {
      * @param key the name of the instruction
      * @return whatever the instruction returns
      */
-    public run(key:number, param:number) {
+    public run(key:number, param:number) : any {
         //find matching instructions
         const matches = this.instructions.filter((ins:Instruction)=>ins.key == key)
 

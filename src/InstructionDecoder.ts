@@ -19,7 +19,7 @@ export class InstructionDecoder {
      * @param name the name of the instruction
      * @return the code and args that correspond to this instruction name
      */
-    public translate(name:string) {
+    public translate(name:string) : {code:number, arg:number} {
         //check if regex matches
         const matches = this.instructionMap.filter(function(entry) {
             const regex = new RegExp(entry.name)

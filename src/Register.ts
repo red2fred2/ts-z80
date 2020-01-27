@@ -14,7 +14,7 @@ export class Register {
     }
 
     //methods
-    set(data:number) {
+    set(data:number) : void{
         //truncate number to the correct number of bits
         let truncated:number = data & this.bitMask
 
@@ -26,7 +26,7 @@ export class Register {
         this.data = truncated
     }
 
-    get() {
+    get() : number {
         return this.data
     }
 }

@@ -93,12 +93,13 @@ export class CPU {
         this.control = new ControlUnit(this.loadCodes())
     }
 
-    private loadCodes() {
+    private loadCodes() : Instruction[] {
         //define codes
         let codes:Instruction[] = []
 
         //nop
-        codes.push(new Instruction(0x00, function() {}))
+        const nop = function() {}
+        codes.push(new Instruction(0x00, nop))
 
         return codes
     }
@@ -108,7 +109,7 @@ export class CPU {
      * @param instruction instruction to run on the CPU
      * @return whatever the function returns
      */
-    public run(instruction:string) {
+    public run(instruction:string) : any {
         const {code, arg} = this.decoder.translate(instruction)
         return this.control.run(code, arg)
     }
