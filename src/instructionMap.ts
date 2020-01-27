@@ -224,7 +224,7 @@ export = [
     {name: 'ret nc', code: 0xd0},
     {name: 'pop de', code: 0xd1},
     {name: 'jp nc,....', code: 0xd2},
-    {name: 'out (..),a', code: 0xd3},
+    {name: 'out (..)', code: 0xd3},
     {name: 'call nc,....', code: 0xd4},
     {name: 'push de', code: 0xd5},
     {name: 'sub ..', code: 0xd6},
@@ -234,7 +234,7 @@ export = [
     {name: 'jp c,....', code: 0xda},
     {name: 'in a,(..)', code: 0xdb},
     {name: 'call c,....', code: 0xdc},
-
+    {name: 'out a', code: 0xdd},
     {name: 'sbc a,..', code: 0xde},
     {name: 'rst 18h', code: 0xdf},
     //row e
@@ -251,10 +251,9 @@ export = [
     {name: 'jp pe,....', code: 0xea},
     {name: 'ex de,hl', code: 0xeb},
     {name: 'call pe,....', code: 0xec},
-
+    {name: 'in a', code: 0xed},
     {name: 'xor *', code: 0xee},
     {name: 'rst 28h', code: 0xef},
-
     //row f
     {name: 'ret p', code: 0xf0},
     {name: 'pop af', code: 0xf1},
@@ -269,7 +268,7 @@ export = [
     {name: 'jp m,....', code: 0xfa},
     {name: 'ei', code: 0xfb},
     {name: 'call m,....', code: 0xfc},
-
+    {name: 'in (....)', code: 0xfd},
     {name: 'cp *', code: 0xfe},
     {name: 'rst 38h', code: 0xff},
 ]
