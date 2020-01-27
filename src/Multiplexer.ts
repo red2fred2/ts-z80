@@ -1,3 +1,6 @@
+/**
+ * Takes a list of inputs, and chooses an output based on a variable
+ */
 export class Multiplexer {
 
     //variables

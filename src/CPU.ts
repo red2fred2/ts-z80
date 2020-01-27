@@ -6,6 +6,9 @@ import {Memory} from './Memory'
 import {Multiplexer} from './Multiplexer'
 import {Register} from './Register'
 
+/**
+ * Represents a full CPU that takes instructions and gives output
+ */
 export class CPU {
 
     //registers
@@ -83,7 +86,7 @@ export class CPU {
         this.stackPointer = new Register(16)
         this.programCounter = new Register(16)
 
-        //add RAM
+        //add 512 KiB RAM
         this.ram = new Memory(8 * Math.pow(2, 16))
 
         //instruction decoder
@@ -97,9 +100,29 @@ export class CPU {
         //define codes
         let codes:Instruction[] = []
 
-        //nop
-        const nop = function() {}
+        /*
+         * nop instruction
+         */
+        function nop() {}
         codes.push(new Instruction(0x00, nop))
+
+        /*
+         * ld instructions
+         */
+
+        /**
+         * Loads the value of the source address to the target register
+         * @param target register to load to
+         * @param source memory address to load from
+         * @param numBits number of bits to load
+         */
+        function ld(target:Register, source:number, numBits:number) {
+            target.set(this.ram.get(source, numBits))
+        }
+
+
+
+
 
         return codes
     }

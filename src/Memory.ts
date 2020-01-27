@@ -1,3 +1,6 @@
+/**
+ * Represents the RAM on a computer
+ */
 export class Memory {
 
     //variables

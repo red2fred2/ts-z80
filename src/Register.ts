@@ -1,3 +1,6 @@
+/**
+ * Represents a register inside a CPU
+ */
 export class Register {
 
     //variables
@@ -5,7 +8,10 @@ export class Register {
     private numBits:number
     private bitMask:number
 
-    //constructor
+    /**
+     * Constructor
+     * @param numBits number of bits to store in this constructor
+     */
     constructor(numBits:number) {
         this.numBits = numBits
         //create bitmask from bit size
@@ -13,8 +19,11 @@ export class Register {
         this.data = 0
     }
 
-    //methods
-    set(data:number) : void{
+    /**
+     * set the data in this register
+     * @param data
+     */
+    set(data:number) : void {
         //truncate number to the correct number of bits
         let truncated:number = data & this.bitMask
 
@@ -26,6 +35,9 @@ export class Register {
         this.data = truncated
     }
 
+    /**
+     * @return the data from this register
+     */
     get() : number {
         return this.data
     }
