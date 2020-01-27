@@ -1,4 +1,6 @@
 import {Adder} from './Adder'
+import {Instruction} from './Instruction'
+import {InstructionDecoder} from './InstructionDecoder'
 import {Memory} from './Memory'
 import {Multiplexer} from './Multiplexer'
 import {Register} from './Register'

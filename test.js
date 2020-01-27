@@ -10,15 +10,15 @@ describe('Adders', function() {
         it('Bitmask', () => equal( adder.bitMask, 255 ))
 
         describe('Math', function() {
-            it('1+1 = 2',      () => equal( adder.add(1, 1),     2 ))
-            it('2+2 = 4',      () => equal( adder.add(2, 2),     4 ))
-            it('1+2 = 3',      () => equal( adder.add(1, 2),     3 ))
-            it('10+3 = 13',    () => equal( adder.add(10, 3),    13 ))
-            it('200+55 = 255', () => equal( adder.add(200, 55),  255 ))
+            it('1+1 = 2', () => equal( adder.add(1, 1), 2 ))
+            it('2+2 = 4', () => equal( adder.add(2, 2), 4 ))
+            it('1+2 = 3', () => equal( adder.add(1, 2), 3 ))
+            it('10+3 = 13', () => equal( adder.add(10, 3), 13 ))
+            it('200+55 = 255', () => equal( adder.add(200, 55), 255 ))
         })
 
         describe('Overflow', function() {
-            it('128+128 = 0',   () => equal( adder.add(128, 128), 0 ))
+            it('128+128 = 0', () => equal( adder.add(128, 128), 0 ))
             it('300+100 = 144', () => equal( adder.add(300, 100), 144 ))
         })
     })
@@ -183,6 +183,31 @@ describe('Memory', function() {
             let actual = ram.get(256, 32)
             equal(actual, testNumber)
         })
+    })
+
+})
+
+// Instructions
+describe('Instructions', function() {
+    const Adder = require('./build/Adder')
+    const Instruction = require('./build/Instruction')
+    const InstructionDecoder = require('./build/InstructionDecoder')
+
+    const adder = new Adder.Adder(16)
+    const decoder = new InstructionDecoder.InstructionDecoder([
+        new Instruction.Instruction('add', (a, b) => adder.add(a, b)),
+        new Instruction.Instruction('sub', (a, b) => adder.add(a, -b))
+    ])
+
+    describe('add', function() {
+        it('1+2 = 3', () => equal( decoder.run('add', 1, 2), 3 ))
+        it('10+3 = 13', () => equal( decoder.run('add', 10, 3), 13 ))
+        it('200+55 = 255', () => equal( decoder.run('add', 200, 55), 255 ))
+    })
+    describe('sub', function() {
+        it('2-1 = 1', () => equal( decoder.run('sub', 2, 1), 1 ))
+        it('10-3 = 7', () => equal( decoder.run('sub', 10, 3), 7 ))
+        it('200-55 = 145', () => equal( decoder.run('sub', 200, 55), 145 ))
     })
 
 })
