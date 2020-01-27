@@ -25,6 +25,7 @@
     "gulp-mocha": "^7.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
     "mocha": "^7.0.0",
+    "readline-sync": "^1.4.10",
     "typescript": "^3.7.5"
   },
   "devDependencies": {}
