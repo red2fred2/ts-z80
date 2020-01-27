@@ -4,15 +4,15 @@
 export class Instruction {
 
     //variables
-    key:number
-    action:Function
+    public key:number
+    public action:Function
 
     /**
      * Constructor
      * @param key the name used to trigger the action
      * @param action the function to run
      */
-    constructor(key:number, action:Function) {
+    public constructor(key:number, action:Function) {
         this.key = key
         this.action = action
     }
@@ -21,8 +21,7 @@ export class Instruction {
      * Runs the function for this instruction
      * @return whatever the function returns
      */
-    run(...params:any[]) {
+    public run(...params:any[]) {
         return this.action(...params)
     }
-
 }

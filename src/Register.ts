@@ -1,9 +1,9 @@
 export class Register {
 
     //variables
-    data:number
-    numBits:number
-    bitMask:number
+    private data:number
+    private numBits:number
+    private bitMask:number
 
     //constructor
     constructor(numBits:number) {
