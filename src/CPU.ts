@@ -5,6 +5,8 @@ import {InstructionDecoder} from './InstructionDecoder'
 import {Memory} from './Memory'
 import {Multiplexer} from './Multiplexer'
 import {Register} from './Register'
+import {RegisterGroup} from './RegisterGroup'
+
 
 /**
  * Represents a full CPU that takes instructions and gives output
@@ -16,6 +18,8 @@ export class CPU {
     private regAInverse:Register
     private regF:Register
     private regFInverse:Register
+    private regAF:RegisterGroup
+    private regAFInverse:RegisterGroup
 
     private regB:Register
     private regBInverse:Register
@@ -60,6 +64,8 @@ export class CPU {
         this.regAInverse = new Register(8)
         this.regF = new Register(8)
         this.regFInverse = new Register(8)
+        this.regAF = new RegisterGroup(this.regA, this.regF)
+        this.regAFInverse = new RegisterGroup(this.regAInverse, this.regFInverse)
 
         this.regB = new Register(8)
         this.regBInverse = new Register(8)

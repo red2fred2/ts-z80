@@ -21,7 +21,7 @@ export class Register {
 
     /**
      * set the data in this register
-     * @param data
+     * @param data data to be set
      */
     set(data:number) : void {
         //truncate number to the correct number of bits
@@ -40,5 +40,12 @@ export class Register {
      */
     get() : number {
         return this.data
+    }
+
+    /**
+     * @return the number of bits this register controls
+     */
+    size() {
+        return this.numBits
     }
 }
