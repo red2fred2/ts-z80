@@ -28,10 +28,10 @@ export class InstructionDecoder {
 
         //check for issues with instructions
         if(matches.length < 1) {
-            console.error(`Instruction '${name}' does not exist`)
+            console.error(`Instruction '${name}' does not exist. Congratulations, you just crashed the CPU!`)
             process.exit(1)
         } else if(matches.length > 1) {
-            console.error(`Instruction '${name}' is defined more than once`)
+            console.error(`Instruction '${name}' is defined more than once. Congratulations, you just crashed the CPU!`)
             process.exit(1)
         } else {
 
