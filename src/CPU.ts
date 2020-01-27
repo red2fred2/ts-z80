@@ -89,16 +89,18 @@ export class CPU {
         //instruction decoder
         this.decoder = new InstructionDecoder(require('./instructionMap'))
 
+        //control unit
+        this.control = new ControlUnit(this.loadCodes())
+    }
+
+    private loadCodes() {
         //define codes
         let codes:Instruction[] = []
 
         //nop
         codes.push(new Instruction(0x00, function() {}))
 
-
-
-        //control unit
-        this.control = new ControlUnit(codes)
+        return codes
     }
 
     /**
