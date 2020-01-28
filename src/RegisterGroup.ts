@@ -48,7 +48,7 @@ export class RegisterGroup {
             //find start index
             let startIndex:number = 0
             //increase start until you find the first 1
-            while(this.bitmasks[r+startIndex] & 1) startIndex++
+            while(((this.bitmasks[r] >> startIndex) & 1) == 0) startIndex++
 
             //find partial data to store
             let partial:number = data & this.bitmasks[r]
@@ -70,7 +70,7 @@ export class RegisterGroup {
             //find start index
             let startIndex:number = 0
             //increase start until you find the first 1
-            while(this.bitmasks[r+startIndex] & 1) startIndex++
+            while(((this.bitmasks[r] >> startIndex) & 1) == 0) startIndex++
 
             //get partial data from this register
             let partial:number = this.registers[r].get()
